@@ -7,13 +7,10 @@ import {
   LayoutDashboard,
   ShoppingBag,
   Package,
-  Users,
+  MessageSquare,
   Store,
   ArrowLeft,
-  Bell,
-  Search,
   Menu,
-  X,
   ExternalLink,
 } from "lucide-react";
 import { useDashboardStore } from "@/store/useDashboardStore";
@@ -25,9 +22,10 @@ export default function AdminLayout({
 }) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { orders } = useDashboardStore();
+  const { orders, inquiries } = useDashboardStore();
 
   const pendingCount = orders.filter((o) => o.status === "Processing" || o.status === "Pending").length;
+  const unreadInquiries = inquiries.filter((i) => i.status === "Unread").length;
 
   const navItems = [
     {
@@ -47,6 +45,12 @@ export default function AdminLayout({
       href: "/admin/products",
       icon: Package,
       badge: null,
+    },
+    {
+      name: "Customer Inquiries",
+      href: "/admin/inquiries",
+      icon: MessageSquare,
+      badge: unreadInquiries > 0 ? unreadInquiries : null,
     },
   ];
 
@@ -141,6 +145,14 @@ export default function AdminLayout({
 
           <div className="flex items-center gap-3">
             <Link
+              href="/contact"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 hover:bg-stone-200 rounded-lg text-xs font-semibold text-gray-700 transition-colors"
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Contact Page</span>
+            </Link>
+
+            <Link
               href="/"
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 hover:bg-stone-200 rounded-lg text-xs font-semibold text-gray-700 transition-colors"
             >
@@ -189,7 +201,7 @@ export default function AdminLayout({
           </div>
         )}
 
-        {/* Nested Page Content */}
+        {/* Nested Page Content with max-w-full */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-full w-full mx-auto">
           {children}
         </main>

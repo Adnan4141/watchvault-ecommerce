@@ -46,7 +46,7 @@ export function Header() {
               Track Order
             </Link>
             <span className="text-stone-500">|</span>
-            <Link href="#support" className="flex items-center gap-1 hover:text-white transition-colors">
+            <Link href="/contact" className="flex items-center gap-1 hover:text-white transition-colors">
               <PhoneCall className="w-3 h-3" />
               <span>Support</span>
             </Link>

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { DashboardOrder, OrderStatus, UserProfile } from "@/types/dashboard";
+import { DashboardOrder, OrderStatus, UserProfile, ContactInquiry } from "@/types/dashboard";
 import { Product } from "@/types";
 import { products as initialProducts } from "@/data/products";
 
@@ -9,17 +9,21 @@ interface DashboardStore {
   orders: DashboardOrder[];
   products: Product[];
   wishlist: Product[];
+  inquiries: ContactInquiry[];
   
   // User Actions
   updateUserProfile: (profile: Partial<UserProfile>) => void;
   toggleWishlist: (product: Product) => void;
   isInWishlist: (productId: string) => boolean;
+  addInquiry: (inquiry: Omit<ContactInquiry, "id" | "date" | "status">) => void;
 
   // Admin Actions
   updateOrderStatus: (orderId: string, status: OrderStatus) => void;
   addProduct: (product: Omit<Product, "id">) => void;
   toggleProductStock: (productId: string) => void;
   deleteProduct: (productId: string) => void;
+  updateInquiryStatus: (inquiryId: string, status: ContactInquiry["status"]) => void;
+  deleteInquiry: (inquiryId: string) => void;
 }
 
 const mockOrders: DashboardOrder[] = [
@@ -91,6 +95,39 @@ const mockOrders: DashboardOrder[] = [
   },
 ];
 
+const mockInquiries: ContactInquiry[] = [
+  {
+    id: "inq-1",
+    name: "Tanvir Ahmed",
+    email: "tanvir@example.com",
+    phone: "01755-123456",
+    subject: "Warranty & Servicing for Binbond 2521",
+    message: "I received the Binbond watch yesterday. Does the 1-year warranty cover battery replacements and glass scratches?",
+    date: "2026-09-28",
+    status: "Unread",
+  },
+  {
+    id: "inq-2",
+    name: "Farhana Islam",
+    email: "farhana.i@gmail.com",
+    phone: "01819-987654",
+    subject: "Corporate Bulk Order Inquiry",
+    message: "We need 25 units of POEDAGAR 866 watches for corporate gifts. Could you provide a quotation and delivery timeline for Sylhet?",
+    date: "2026-09-27",
+    status: "Replied",
+  },
+  {
+    id: "inq-3",
+    name: "Shakil Khan",
+    email: "shakil.k@hotmail.com",
+    phone: "01912-334455",
+    subject: "Delivery address modification for order WV-892104",
+    message: "Please deliver after 4 PM at Dhanmondi. Thank you!",
+    date: "2026-09-27",
+    status: "Closed",
+  },
+];
+
 export const useDashboardStore = create<DashboardStore>()(
   persist(
     (set, get) => ({
@@ -105,6 +142,7 @@ export const useDashboardStore = create<DashboardStore>()(
       orders: mockOrders,
       products: initialProducts,
       wishlist: [initialProducts[0], initialProducts[2]],
+      inquiries: mockInquiries,
 
       updateUserProfile: (profile) => {
         set((state) => ({ user: { ...state.user, ...profile } }));
@@ -122,6 +160,16 @@ export const useDashboardStore = create<DashboardStore>()(
 
       isInWishlist: (productId) => {
         return get().wishlist.some((p) => p.id === productId);
+      },
+
+      addInquiry: (inquiryData) => {
+        const newInquiry: ContactInquiry = {
+          ...inquiryData,
+          id: `inq-${Date.now()}`,
+          date: new Date().toISOString().split("T")[0],
+          status: "Unread",
+        };
+        set((state) => ({ inquiries: [newInquiry, ...state.inquiries] }));
       },
 
       updateOrderStatus: (orderId, status) => {
@@ -149,6 +197,20 @@ export const useDashboardStore = create<DashboardStore>()(
       deleteProduct: (productId) => {
         set((state) => ({
           products: state.products.filter((p) => p.id !== productId),
+        }));
+      },
+
+      updateInquiryStatus: (inquiryId, status) => {
+        set((state) => ({
+          inquiries: state.inquiries.map((inq) =>
+            inq.id === inquiryId ? { ...inq, status } : inq
+          ),
+        }));
+      },
+
+      deleteInquiry: (inquiryId) => {
+        set((state) => ({
+          inquiries: state.inquiries.filter((inq) => inq.id !== inquiryId),
         }));
       },
     }),
