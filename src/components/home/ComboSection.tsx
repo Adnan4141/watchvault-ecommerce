@@ -11,14 +11,15 @@ import {
   Flame,
   Check,
 } from "lucide-react";
-import { comboOffers } from "@/data/combos";
 import { ComboOffer, Product } from "@/types";
 import { formatPrice } from "@/lib/utils";
 import { useCartStore } from "@/store/useCartStore";
+import { useDashboardStore } from "@/store/useDashboardStore";
 import { Button } from "@/components/ui/button";
 
 export function ComboSection() {
   const { addItem, setIsOpen } = useCartStore();
+  const { combos } = useDashboardStore();
   const [addedCombos, setAddedCombos] = useState<Record<string, boolean>>({});
 
   const handleAddComboToCart = (combo: ComboOffer) => {
@@ -68,9 +69,9 @@ export function ComboSection() {
         </div>
       </div>
 
-      {/* 3-Column Combo Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {comboOffers.map((combo) => {
+      {/* 4-Column Combo Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {combos.map((combo) => {
           const isAdded = addedCombos[combo.id];
           return (
             <div

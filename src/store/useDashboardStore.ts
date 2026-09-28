@@ -1,8 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { DashboardOrder, OrderStatus, UserProfile, ContactInquiry } from "@/types/dashboard";
-import { Product } from "@/types";
+import { Product, ComboOffer } from "@/types";
 import { products as initialProducts } from "@/data/products";
+import { initialComboOffers } from "@/data/combos";
 
 interface DashboardStore {
   user: UserProfile;
@@ -10,6 +11,7 @@ interface DashboardStore {
   products: Product[];
   wishlist: Product[];
   inquiries: ContactInquiry[];
+  combos: ComboOffer[];
   
   // User Actions
   updateUserProfile: (profile: Partial<UserProfile>) => void;
@@ -24,6 +26,10 @@ interface DashboardStore {
   deleteProduct: (productId: string) => void;
   updateInquiryStatus: (inquiryId: string, status: ContactInquiry["status"]) => void;
   deleteInquiry: (inquiryId: string) => void;
+
+  // Admin Combo Actions
+  addCombo: (combo: Omit<ComboOffer, "id">) => void;
+  deleteCombo: (comboId: string) => void;
 }
 
 const mockOrders: DashboardOrder[] = [
@@ -143,6 +149,7 @@ export const useDashboardStore = create<DashboardStore>()(
       products: initialProducts,
       wishlist: [initialProducts[0], initialProducts[2]],
       inquiries: mockInquiries,
+      combos: initialComboOffers,
 
       updateUserProfile: (profile) => {
         set((state) => ({ user: { ...state.user, ...profile } }));
@@ -211,6 +218,18 @@ export const useDashboardStore = create<DashboardStore>()(
       deleteInquiry: (inquiryId) => {
         set((state) => ({
           inquiries: state.inquiries.filter((inq) => inq.id !== inquiryId),
+        }));
+      },
+
+      addCombo: (comboData) => {
+        const id = `combo-${Date.now()}`;
+        const newCombo: ComboOffer = { ...comboData, id };
+        set((state) => ({ combos: [newCombo, ...state.combos] }));
+      },
+
+      deleteCombo: (comboId) => {
+        set((state) => ({
+          combos: state.combos.filter((c) => c.id !== comboId),
         }));
       },
     }),

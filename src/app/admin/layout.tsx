@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   Menu,
   ExternalLink,
+  Flame,
 } from "lucide-react";
 import { useDashboardStore } from "@/store/useDashboardStore";
 
@@ -44,6 +45,12 @@ export default function AdminLayout({
       name: "Products / Inventory",
       href: "/admin/products",
       icon: Package,
+      badge: null,
+    },
+    {
+      name: "Combo Packs",
+      href: "/admin/combos",
+      icon: Flame,
       badge: null,
     },
     {
