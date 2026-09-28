@@ -103,11 +103,14 @@ export function Header() {
 
           {/* Action buttons */}
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* Login / Register */}
-            <button className="hidden md:flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-all cursor-pointer">
+            {/* Login / Register Link */}
+            <Link
+              href="/login"
+              className="hidden md:flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-all cursor-pointer"
+            >
               <User className="w-4 h-4 text-amber-200" />
               <span>Login / Register</span>
-            </button>
+            </Link>
 
             {/* Notification */}
             <button
@@ -162,9 +165,12 @@ export function Header() {
               <button className="flex-1 py-2 bg-white/10 rounded-lg text-center font-medium">
                 Track Order
               </button>
-              <button className="flex-1 py-2 bg-amber-400 text-stone-950 font-bold rounded-lg text-center">
+              <Link
+                href="/login"
+                className="flex-1 py-2 bg-amber-400 text-stone-950 font-bold rounded-lg text-center block"
+              >
                 Login / Register
-              </button>
+              </Link>
             </div>
           </div>
         )}
