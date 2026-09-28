@@ -239,7 +239,7 @@ export function CartDrawer() {
               <input
                 type="text"
                 required
-                placeholder="e.g. Adnan Rahman"
+                placeholder="e.g. Adnan Hossain"
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
@@ -255,7 +255,7 @@ export function CartDrawer() {
               <input
                 type="tel"
                 required
-                placeholder="e.g. 01700-000000"
+                placeholder="e.g. 01883671140"
                 value={formData.phone}
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })

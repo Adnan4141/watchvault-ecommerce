@@ -31,8 +31,8 @@ const mockOrders: DashboardOrder[] = [
     id: "ord-1",
     orderNumber: "WV-892104",
     date: "2026-09-27",
-    customerName: "Adnan Rahman",
-    customerPhone: "01712-345678",
+    customerName: "Adnan Hossain",
+    customerPhone: "01883671140",
     customerAddress: "House 12, Road 5, Dhanmondi",
     city: "Dhaka",
     items: [
@@ -75,8 +75,8 @@ const mockOrders: DashboardOrder[] = [
     id: "ord-3",
     orderNumber: "WV-865190",
     date: "2026-09-18",
-    customerName: "Adnan Rahman",
-    customerPhone: "01712-345678",
+    customerName: "Adnan Hossain",
+    customerPhone: "01883671140",
     customerAddress: "House 12, Road 5, Dhanmondi",
     city: "Dhaka",
     items: [
@@ -132,9 +132,9 @@ export const useDashboardStore = create<DashboardStore>()(
   persist(
     (set, get) => ({
       user: {
-        name: "Adnan Rahman",
+        name: "Adnan Hossain",
         email: "adnan@example.com",
-        phone: "01712-345678",
+        phone: "01883671140",
         address: "House 12, Road 5, Dhanmondi",
         city: "Dhaka",
         joinedDate: "September 2026",

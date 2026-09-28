@@ -179,7 +179,7 @@ export function AuthCard({ initialMode }: AuthProps) {
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Adnan Rahman"
+                        placeholder="Adnan Hossain"
                         className="w-full pl-9 pr-3 py-2.5 text-xs border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-[#542A0C] focus:border-[#542A0C] transition-all"
                       />
                     </div>
@@ -216,7 +216,7 @@ export function AuthCard({ initialMode }: AuthProps) {
                         required
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder="01700-000000"
+                        placeholder="01883671140"
                         className="w-full pl-9 pr-3 py-2.5 text-xs border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-[#542A0C] focus:border-[#542A0C] transition-all"
                       />
                     </div>

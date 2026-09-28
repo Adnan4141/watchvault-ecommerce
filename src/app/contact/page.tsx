@@ -87,7 +87,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="text-amber-200/80 font-medium text-[11px]">Direct Hotline</div>
-                    <div className="font-bold text-sm text-white">+880 1800-000000</div>
+                    <div className="font-bold text-sm text-white">+880 1883-671140</div>
                     <div className="text-white/50 text-[10px]">10:00 AM – 10:00 PM Everyday</div>
                   </div>
                 </div>
@@ -208,7 +208,7 @@ export default function ContactPage() {
                     <label className="block font-semibold text-gray-700 mb-1">Mobile Phone (Optional)</label>
                     <input
                       type="tel"
-                      placeholder="01700-000000"
+                      placeholder="01883671140"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full border border-gray-300 rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-[#542A0C]"
