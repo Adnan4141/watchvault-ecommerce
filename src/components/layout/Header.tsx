@@ -12,6 +12,7 @@ import {
   PhoneCall,
   Menu,
   X,
+  ShieldAlert,
 } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 
@@ -31,12 +32,17 @@ export function Header() {
           </div>
 
           <div className="hidden sm:flex items-center gap-4 text-neutral-200">
+            <Link href="/admin" className="flex items-center gap-1 text-amber-300 font-semibold hover:text-white transition-colors">
+              <ShieldAlert className="w-3.5 h-3.5" />
+              <span>Admin Panel</span>
+            </Link>
+            <span className="text-stone-500">|</span>
             <button className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
               <Globe className="w-3.5 h-3.5" />
               <span>বাংলা</span>
             </button>
             <span className="text-stone-500">|</span>
-            <Link href="#track" className="hover:text-white transition-colors">
+            <Link href="/dashboard" className="hover:text-white transition-colors">
               Track Order
             </Link>
             <span className="text-stone-500">|</span>
@@ -103,13 +109,13 @@ export function Header() {
 
           {/* Action buttons */}
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* Login / Register Link */}
+            {/* Dashboard / User Profile Link */}
             <Link
-              href="/login"
+              href="/dashboard"
               className="hidden md:flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 px-3 py-1.5 rounded-full text-xs font-medium text-white transition-all cursor-pointer"
             >
               <User className="w-4 h-4 text-amber-200" />
-              <span>Login / Register</span>
+              <span>My Account</span>
             </Link>
 
             {/* Notification */}
@@ -121,13 +127,14 @@ export function Header() {
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-400 rounded-full" />
             </button>
 
-            {/* Track Orders */}
-            <button
+            {/* Track Orders -> Dashboard */}
+            <Link
+              href="/dashboard"
               aria-label="Orders"
               className="hidden sm:flex text-white/90 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
             >
               <Package className="w-5 h-5" />
-            </button>
+            </Link>
 
             {/* Cart Trigger */}
             <button
@@ -162,14 +169,17 @@ export function Header() {
               <span className="font-semibold">+880 1800-000000</span>
             </div>
             <div className="flex gap-2 pt-1">
-              <button className="flex-1 py-2 bg-white/10 rounded-lg text-center font-medium">
-                Track Order
-              </button>
               <Link
-                href="/login"
+                href="/dashboard"
+                className="flex-1 py-2 bg-white/10 rounded-lg text-center font-medium block"
+              >
+                My Account
+              </Link>
+              <Link
+                href="/admin"
                 className="flex-1 py-2 bg-amber-400 text-stone-950 font-bold rounded-lg text-center block"
               >
-                Login / Register
+                Admin Panel
               </Link>
             </div>
           </div>
