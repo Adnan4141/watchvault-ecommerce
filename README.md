@@ -1,132 +1,181 @@
-# WatchVault (watchvaults.vercel.app)
+# WatchVault — Luxury & Everyday Wristwatch E-Commerce
 
-> **WatchVault** is a full-stack luxury & casual e-commerce platform built for high-performance wristwatch commerce in Bangladesh, offering seamless Cash on Delivery, instant order tracking, a dedicated user portal, and a store management admin dashboard.
+<div align="center">
+  <img src="https://watchvaults.vercel.app/icon.svg" width="96" height="96" alt="WatchVault Logo" />
+  <h3>Timeless Precision, Delivered Across Bangladesh</h3>
+  <p>An enterprise-grade, high-performance full-stack e-commerce application designed for watch commerce with Cash on Delivery, real-time inventory management, order tracking, and an administration console.</p>
 
-🌐 **Live URL**: [https://watchvaults.vercel.app](https://watchvaults.vercel.app)  
-📦 **Tech Stack**: Next.js 16 (App Router, Turbopack), TypeScript, Tailwind CSS v4, Zustand, Lucide Icons, Shadcn-style Architecture.
+  <p>
+    <a href="https://watchvaults.vercel.app"><strong>Explore Live Website »</strong></a>
+    <br />
+    <a href="https://watchvaults.vercel.app/admin">Admin Panel</a>
+    ·
+    <a href="https://watchvaults.vercel.app/dashboard">Customer Dashboard</a>
+    ·
+    <a href="https://watchvaults.vercel.app/contact">Support Hub</a>
+  </p>
+</div>
 
 ---
 
-## 🌟 Key Highlights & Feature Matrix
+## 🌐 Live Production Links
 
-### 1. 🛍️ Customer Storefront
-- **Pixel-Perfect Hero Carousel**: High-resolution banners with auto-play, manual indicator navigation, and touch swipe gestures.
-- **Shop by Category Strip**:
-  - Men's Collection
+| Environment | URL | Status |
+| :--- | :--- | :--- |
+| **Production Store** | [https://watchvaults.vercel.app](https://watchvaults.vercel.app) | ![Production](https://img.shields.io/badge/Vercel-Live-success?style=flat-square&logo=vercel) |
+| **Admin Console** | [https://watchvaults.vercel.app/admin](https://watchvaults.vercel.app/admin) | Active (Full-Width) |
+| **Customer Portal** | [https://watchvaults.vercel.app/dashboard](https://watchvaults.vercel.app/dashboard) | Active |
+| **Contact Support** | [https://watchvaults.vercel.app/contact](https://watchvaults.vercel.app/contact) | Active |
+
+---
+
+## 🛠️ Modern Tech Stack Architecture
+
+- **Core Framework**: [Next.js 16](https://nextjs.org/) (App Router, Server & Client Components, Turbopack Engine)
+- **Language**: [TypeScript](https://www.typescriptlang.org/) with strict type safety
+- **Styling & UI**: [Tailwind CSS v4](https://tailwindcss.com/), Radix-inspired Shadcn UI principles, Lucide Icons
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand) with persistent local storage middleware
+- **Asset Strategy**: High-density local static assets served directly from `/public/images/` with Next.js image optimization
+- **Hosting & Edge**: [Vercel](https://vercel.com/) with instant global edge CDN distribution
+
+---
+
+## 🌟 Comprehensive Feature Tour
+
+### 1. 🛍️ Customer Storefront Experience
+- **Interactive Hero Carousel**: Auto-sliding luxury banners with slide transitions, responsive aspect ratios for mobile and desktop, and dot/arrow navigation.
+- **Brand Story & Features Sidebar**: Highlighted trust factors (100% Original, Fast Delivery, 24/7 Support, Store Outlets, Mobile App).
+- **Categorized Shopping Strips**:
   - Couple Collection
+  - Men's Collection
   - Ladies' Collection
-  - Live category filters that update product view without full-page reload.
-- **Product Showcase & Card Architecture**:
-  - Responsive 5-column product grid (`mix-blend-multiply` zoom effect on hover).
-  - Price calculation with discount badges (`-45%`, `-50%`) and strike-through original pricing in Bangladeshi Taka (৳).
-  - Quick-view popup modal with detailed watch specifications.
+  - Instant client-side filtering without page reloads.
+- **5-Column Responsive Product Grid**:
+  - Image hover zoom effects with multi-faceted diamond cut details.
+  - Calculated discount tags (`-45%`, `-50%`) with strike-through original prices in Bangladeshi Taka (৳).
+  - Quick View details modal.
+  - 1-click Add to Cart with live button status confirmation.
 - **Slide-out Shopping Cart & Quick Checkout**:
-  - Persistent cart state using `zustand` local storage middleware.
-  - Interactive quantity counters, item removal, and auto-computed delivery rates (Inside Dhaka ৳60 / Outside Dhaka ৳120).
-  - 1-click Cash on Delivery order placement form.
+  - Persistent cart state across browser sessions.
+  - Real-time quantity increment/decrement and subtotal calculations.
+  - Automatic shipping computation (Inside Dhaka ৳60 / Outside Dhaka ৳120).
+  - Cash on Delivery order placement form.
 - **Slide-out Notification Drawer**:
-  - Live notification drawer accessible directly from the navbar bell icon.
-  - Displays flash sale alerts, shipment updates, and corporate discount notices.
+  - Bell icon in navbar opens a slide-over panel displaying flash sale announcements, order status updates, and new arrivals.
 
-### 2. 👤 User Dashboard (`/dashboard`)
-- **Customer Overview**: User profile details, verified membership badge, and joined date.
-- **Metric Cards**: Total orders placed, active deliveries in transit, wishlist count, total spent (৳).
-- **Orders & Live 4-Step Tracking**:
-  - Visual timeline: `1. Placed` ➔ `2. Confirmed` ➔ `3. In Transit` ➔ `4. Delivered`.
-  - Detailed invoice view with product thumbnails and destination address.
-- **Wishlist Manager**: Save favorite watches and add directly to cart with one click.
-- **Address Book & Profile Settings**: Instant profile update with real-time state synchronization.
+### 2. 👤 Customer Account Dashboard (`/dashboard`)
+- **Customer Overview**: User greeting, member status, joined date, email, and contact info (Adnan Hossain).
+- **Metric Cards**: Total Orders, In-Transit Shipments, Wishlist Count, Total Amount Spent.
+- **4-Stage Visual Delivery Tracker**:
+  - Step-by-step progress tracking: `1. Placed` ➔ `2. Confirmed` ➔ `3. In Transit` ➔ `4. Delivered`.
+  - Detailed modal view displaying ordered items, subtotal, and destination address.
+- **Wishlist Management**: One-click transfer from saved wishlist to active cart.
+- **Address Book & Profile Editor**: Update shipping details and contact information.
 
 ### 3. 🛡️ Store Administration Console (`/admin`)
-- **Full-Width Dashboard Layout**: Optimized with `max-w-full w-full mx-auto` for dense information density.
-- **Overview & Sales Analytics (`/admin`)**:
-  - Total revenue (BDT) with weekly growth trend.
-  - Pending orders to fulfill counter.
-  - Active watch count vs. total catalog.
-  - Live recent orders table.
-- **Orders Management (`/admin/orders`)**:
-  - Live filter by status (`All`, `Pending`, `Processing`, `Shipped`, `Delivered`, `Cancelled`).
-  - Search by Order ID, customer name, or phone number.
-  - Real-time status update dropdown to transition orders across fulfillment stages.
-- **Watch Catalog & Inventory Management (`/admin/products`)**:
-  - Add new watch model with custom brand, category, sale price, and discount percentage.
-  - Instant stock availability toggle (`In Stock` ↔ `Out of Stock`).
-  - Delete watch from store.
-- **Customer Inquiries Management (`/admin/inquiries`)**:
-  - View direct inquiries submitted from the public Contact page.
-  - Unread notification badges on admin sidebar.
+- **Fluid Layout**: Designed with `max-w-full w-full mx-auto` for high data density on wide screens.
+- **Analytics & Revenue Overview (`/admin`)**:
+  - Total Revenue (BDT) with weekly percentage growth indicators.
+  - Total orders placed vs. orders requiring dispatch.
+  - In-stock inventory count.
+  - Live orders stream table.
+- **Order Fulfillment Center (`/admin/orders`)**:
+  - Real-time status update dropdown (`Pending`, `Processing`, `Shipped`, `Delivered`, `Cancelled`).
+  - Search by order number (`WV-XXXXXX`), customer name, or phone.
+  - Status filters (`All`, `Pending`, `Processing`, `Shipped`, etc.).
+- **Product Catalog & Stock Control (`/admin/products`)**:
+  - Instant stock toggle (`✓ In Stock` ↔ `✗ Out of Stock`).
+  - Add New Product modal form (name, brand, category, sale price, original price, discount %, and features).
+  - Product deletion with instant inventory sync.
+- **Customer Inquiries Registry (`/admin/inquiries`)**:
+  - Receive and manage submissions from the public Contact page.
+  - Unread message count badges in the admin sidebar.
   - 1-click `mailto:` reply generator and status workflow (`Unread` ➔ `Replied` ➔ `Closed`).
 
-### 4. 📞 Public Contact & Support (`/contact`)
-- 24/7 dedicated support hub with direct hotline: **+880 1883-671140**.
-- Direct contact inquiry form integrated with admin dashboard registry.
-- Store location and customer guarantees (100% Genuine, 7-Day Checking Warranty).
+### 4. 📞 Support & Inquiries Hub (`/contact`)
+- 24/7 dedicated support desk with direct hotline: **+880 1883-671140**.
+- Direct message inquiry form integrated with the store administrator panel.
+- Store address: House 12, Road 5, Dhanmondi, Dhaka 1205, Bangladesh.
 
 ---
 
-## 🚀 Advanced Architectural Features
+## 📂 Project Directory Structure
 
-- **Local Static Asset Architecture**: All images, banners, and category icons are served locally from `/public/images/` for maximum performance, offline resilience, and CDN caching.
-- **Zero-Latency State Flow**: Real-time cross-component reactivity powered by Zustand with persistent local storage.
-- **SEO & Social Graph Optimization**:
-  - Dynamic OpenGraph and Twitter card metadata.
-  - Custom vector luxury watch favicon (`icon.svg`) matching high-DPI displays.
-- **RESTful API Route Handlers**:
-  - `GET /api/products`: Filterable by brand, category, and text query.
-  - `POST /api/orders`: Order placement API with automated order ID generation (`WV-XXXXXX`).
+```plaintext
+watchvault/
+├── public/
+│   ├── icon.svg                      # Custom vector luxury watch favicon
+│   └── images/
+│       ├── banners/                  # Hero and promotional banner assets
+│       ├── categories/               # Category circular icons
+│       └── products/                 # Product photography (Binbond, POEDAGAR, Olevs)
+├── src/
+│   ├── app/
+│   │   ├── admin/                    # Admin Dashboard routes
+│   │   │   ├── inquiries/page.tsx    # Customer inquiry messages
+│   │   │   ├── orders/page.tsx       # Order fulfillment and status changer
+│   │   │   ├── products/page.tsx     # Inventory manager & add watch modal
+│   │   │   ├── layout.tsx            # Admin sidebar & full-width layout
+│   │   │   └── page.tsx              # Analytics & revenue overview
+│   │   ├── api/
+│   │   │   ├── orders/route.ts       # Order placement API
+│   │   │   └── products/route.ts     # Product search and filtering API
+│   │   ├── contact/page.tsx          # Public contact & support page
+│   │   ├── dashboard/page.tsx        # Customer order tracking & profile
+│   │   ├── login/page.tsx            # Customer login portal
+│   │   ├── register/page.tsx         # Customer registration portal
+│   │   ├── globals.css               # Theme tokens and animations
+│   │   ├── layout.tsx                # SEO metadata and root layout
+│   │   └── page.tsx                  # Main Storefront
+│   ├── components/
+│   │   ├── auth/AuthCard.tsx         # 2-column animated login/register form
+│   │   ├── home/                     # Storefront sections (Hero, Categories, Grid)
+│   │   ├── layout/                   # Header, Footer, CartDrawer, NotificationDrawer
+│   │   └── ui/                       # Shadcn-style primitives (Button, Modal, Badge)
+│   ├── data/products.ts              # Catalog seed data with local image mappings
+│   ├── lib/utils.ts                  # ClassName merger & currency formatters
+│   ├── store/
+│   │   ├── useCartStore.ts           # Cart state with local storage persistence
+│   │   └── useDashboardStore.ts      # Unified dashboard state (orders, inventory, inquiries)
+│   └── types/                        # TypeScript definitions
+└── README.md
+```
 
 ---
 
-## 🛠️ Local Development & Setup
+## ⚡ Getting Started Locally
 
-### Prerequisites
-- Node.js `v18.18+` or `v20+` / `v24+`
-- npm `v9+` or `v10+`
-
-### Installation
 ```bash
 # Clone the repository
 git clone https://github.com/Adnan4141/watchvault-ecommerce.git
 cd watchvault-ecommerce
 
-# Install dependencies
+# Install packages
 npm install
 
-# Start local development server
+# Run development server
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Build Verification
+Visit [http://localhost:3000](http://localhost:3000) to view the application.
+
+---
+
+## 🚢 Deployment Workflow
+
+This project is deployed to **Vercel** via the Vercel CLI / GitHub integration:
+
 ```bash
-# Production optimized build with Turbopack
-npm run build
-
-# Start production server
-npm run start
+# Deploy to production
+vercel --prod
 ```
 
----
-
-## 🚢 Deployment to Vercel
-
-WatchVault is built with zero external runtime dependencies and is fully configured for automated deployment to Vercel:
-
-1. **Push to GitHub**:
-   ```bash
-   git push origin main
-   ```
-2. **Deploy on Vercel**:
-   - Go to [vercel.com](https://vercel.com) and import the repository.
-   - Configure Domain: `watchvaults.vercel.app` (or custom domain).
-   - Build Command: `npm run build`
-   - Output Directory: `.next`
-3. Click **Deploy**.
+Target Domain: [https://watchvaults.vercel.app](https://watchvaults.vercel.app)
 
 ---
 
-## 📞 Contact & Inquiries
-- **Hotline**: +880 1883-671140
+## 📞 Contact Information
+- **Customer Care Hotline**: +880 1883-671140 (10:00 AM – 10:00 PM)
 - **Email**: support@watchvault.com.bd
 - **Headquarters**: House 12, Road 5, Dhanmondi, Dhaka 1205, Bangladesh
 
