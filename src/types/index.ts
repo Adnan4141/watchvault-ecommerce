@@ -35,3 +35,16 @@ export interface CartItem {
   product: Product;
   quantity: number;
 }
+
+export interface ComboOffer {
+  id: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  image: string;
+  includedItems: string[];
+  currentPrice: number;
+  originalPrice: number;
+  discountPercentage: number;
+  savings: number;
+}

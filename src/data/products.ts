@@ -233,3 +233,70 @@ export const products: Product[] = [
     features: ["Midnight Black Coating", "Diamond Geometry Glass", "Shock Resistant", "Quartz Core"]
   },
 ];
+
+// Additional Newly Generated Watches
+export const newArrivalProducts: Product[] = [
+  {
+    id: "naviforce-9182-military",
+    name: "NAVIFORCE 9182 Military Tactical Chronograph Luminous Waterproof Watch - Dual Display",
+    brand: "NAVIFORCE",
+    category: "Men's Collection",
+    image: "/images/products/naviforce-9182-military.jpg",
+    currentPrice: 1250,
+    originalPrice: 2400,
+    discountPercentage: 48,
+    color: "Army Black & Tan",
+    model: "NF9182",
+    inStock: true,
+    description: "Rugged tactical dual-time digital and analog watch engineered with shock-resistant resin armor, backlight illuminator, and 30M waterproof rating.",
+    features: ["Dual Analog & Digital Display", "LED Backlight Night Mode", "Shockproof Bezel", "30M Water Resistance"]
+  },
+  {
+    id: "curren-8355-chronograph",
+    name: "CURREN 8355 Luxury Business Chronograph Quartz Wristwatch - Deep Royal Blue",
+    brand: "CURREN",
+    category: "Men's Collection",
+    image: "/images/products/curren-8355-chronograph.jpg",
+    currentPrice: 1190,
+    originalPrice: 2200,
+    discountPercentage: 46,
+    color: "Royal Blue & Silver",
+    model: "8355",
+    inStock: true,
+    description: "Multi-functional chronograph dial with working sub-dials, date calendar, hardened mineral glass, and solid stainless steel bracelet.",
+    features: ["Fully Active Chronograph", "Date Calendar Display", "Hardlex Scratchproof Glass", "Butterfly Clasp"]
+  },
+  {
+    id: "skmei-1628-tactical",
+    name: "SKMEI 1628 Digital Sports Military Countdown Stopwatch Wristwatch",
+    brand: "SKMEI",
+    category: "Men's Collection",
+    image: "/images/products/skmei-1628-tactical.jpg",
+    currentPrice: 650,
+    originalPrice: 1200,
+    discountPercentage: 46,
+    color: "Stealth Matte Black",
+    model: "1628",
+    inStock: true,
+    description: "Ultra-durable lightweight digital sports watch with stopwatch, dual time, countdown timer, EL backlight, and 50M water resistance.",
+    features: ["50M Waterproof Swimming Grade", "EL Lamp Night Backlight", "12/24H Dual Time Display", "Lightweight Resin Band"]
+  },
+  {
+    id: "hannah-martin-rosegold",
+    name: "Hannah Martin Minimalist Ultra-Thin Ladies' Watch - Rose Gold Milanese Mesh",
+    brand: "Hannah Martin",
+    category: "Ladies' Collection",
+    image: "/images/products/hannah-martin-rosegold.jpg",
+    currentPrice: 950,
+    originalPrice: 1800,
+    discountPercentage: 47,
+    color: "Rose Gold & Pearl White",
+    model: "HM-36",
+    inStock: true,
+    description: "Graceful and sleek 6.8mm ultra-thin case with magnetic Milanese steel mesh strap, minimalist clean dial, and scratch-proof sapphire coating.",
+    features: ["6.8mm Ultra-Thin Slim Case", "Magnetic Milanese Mesh Strap", "Water Resistant 30M", "Minimalist Clean Dial"]
+  }
+];
+
+// Append new products to default product catalog
+products.push(...newArrivalProducts);
